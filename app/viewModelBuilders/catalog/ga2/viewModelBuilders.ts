@@ -181,3 +181,18 @@ export const buildTaxonomicLevelSpecies = (
     url: `${ROUTES.ORGANISMS}/${sanitizeEntityId(entity.speciesTaxonomyId)}`,
   };
 };
+
+/**
+ * Build props for the PretextData component.
+ * @param entity - Assembly entity.
+ * @returns Props to be used for the PretextData component.
+ */
+export const buildPretextData = (
+  entity: GA2AssemblyEntity
+): ComponentProps<typeof C.PretextData> => {
+  return {
+    imageUrl: entity.pretext?.imageUrl,
+    pretextUrl: entity.pretext?.pretextUrl,
+    showEmpty: false,
+  };
+};

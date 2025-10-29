@@ -15,6 +15,7 @@ export interface GA2AssemblyEntity {
   lineageTaxonomyIds: string[];
   ncbiTaxonomyId: string;
   ploidy: ORGANISM_PLOIDY[];
+  pretext: PretextData | null;
   scaffoldCount: number | null;
   scaffoldL50: number | null;
   scaffoldN50: number | null;
@@ -51,6 +52,11 @@ export interface GA2OrganismEntity {
   taxonomicLevelPhylum: string;
   taxonomicLevelSpecies: string;
   tolId: string;
+}
+
+export interface PretextData {
+  imageUrl: string;
+  pretextUrl: string;
 }
 
 export interface SRAData {

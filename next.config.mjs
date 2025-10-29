@@ -27,6 +27,18 @@ export default withPlugins(
     output: "export",
     reactStrictMode: true,
     transpilePackages: [...ESM_PACKAGES],
+    // Dev-only proxy for genomeark files to bypass CORS
+    // uncomment to enable (for local dev only)
+    // async rewrites() {
+    //   return process.env.NODE_ENV === "development"
+    //     ? [
+    //         {
+    //           source: "/dev-proxy/genomeark/:path*",
+    //           destination: "https://js2.jetstream-cloud.org:8001/genomeark/:path*",
+    //         },
+    //       ]
+    //     : [];
+    // },
     webpack: (config) => {
       // Add the alias for the peer dependency
       config.resolve.alias["@emotion/react"] = path.resolve(

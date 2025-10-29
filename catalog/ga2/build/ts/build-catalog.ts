@@ -113,6 +113,7 @@ async function buildAssemblies(
       lineageTaxonomyIds: parseList(row.lineageTaxonomyIds),
       ncbiTaxonomyId: row.taxonomyId,
       ploidy,
+      pretext: null,
       scaffoldCount: parseNumberOrNull(row.scaffoldCount),
       scaffoldL50: parseNumberOrNull(row.scaffoldL50),
       scaffoldN50: parseNumberOrNull(row.scaffoldN50),

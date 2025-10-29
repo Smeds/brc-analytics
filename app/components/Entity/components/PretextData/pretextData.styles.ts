@@ -1,0 +1,109 @@
+import { ButtonBase } from "@mui/material";
+
+import styled from "@emotion/styled";
+import { Accordion } from "@mui/material";
+import { bpDownSm } from "@databiosphere/findable-ui/lib/styles/common/mixins/breakpoints";
+import { SHADOWS } from "@databiosphere/findable-ui/lib/styles/common/constants/shadows";
+import { PALETTE } from "@databiosphere/findable-ui/lib/styles/common/constants/palette";
+
+export const StyledAccordion = styled(Accordion)`
+  &.MuiAccordion-root {
+    background-color: ${PALETTE.COMMON_WHITE};
+    box-shadow: ${SHADOWS["01"]};
+
+    .MuiAccordion-heading {
+      display: block;
+      padding: 20px;
+
+      .MuiAccordionSummary-root {
+        flex-direction: row;
+        gap: 16px;
+
+        .MuiAccordionSummary-content {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          margin: 0;
+
+          .MuiTypography-root {
+            margin: 0;
+
+            &.MuiTypography-heading-small {
+              font-size: 16px;
+              letter-spacing: normal;
+              line-height: 24px;
+            }
+          }
+        }
+
+        .MuiAccordionSummary-expandIconWrapper {
+          .MuiSvgIcon-root {
+            transform: rotate(90deg);
+          }
+
+          .MuiChip-root {
+            color: ${PALETTE.INK_LIGHT};
+          }
+        }
+
+        &.Mui-disabled {
+          opacity: 1;
+        }
+      }
+    }
+
+    .MuiAccordionDetails-root {
+      border-radius: 0 0 8px 8px; // bottom corners only
+      margin: 0;
+      overflow: hidden; // simple way to manage workflow loading panel bleed
+      padding: 0;
+
+      ${bpDownSm} {
+        border-radius: 0;
+      }
+    }
+
+    &.Mui-disabled {
+      background-color: ${PALETTE.SMOKE_LIGHTEST};
+    }
+  }
+` as typeof Accordion;
+
+export const StyledPretextContainer = styled("div")`
+  display: grid;
+  gap: 16px;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+`;
+
+export const StyledImageContainer = styled("div")`
+  border: 1px solid ${({ theme }) => theme.palette.smoke.main};
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 20px;
+  overflow: hidden;
+  transition: opacity 0.2s ease-in-out;
+  width: calc(100% - 40px);
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+`;
+
+export const StyledDownloadButton = styled(ButtonBase)`
+  display: grid;
+  gap: 8px;
+  grid-template-columns: auto 1fr;
+  justify-items: flex-start;
+  padding: 8px 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
